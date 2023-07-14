@@ -16,6 +16,17 @@ services:
     networks:
       - postgres
 
+  postgresdb_replica:
+    container_name: postgresdb_replica
+    image: postgres:14.5
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5430:5432"
+    networks:
+      - postgres
 
 networks:
   postgres:
